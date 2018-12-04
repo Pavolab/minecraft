@@ -15,8 +15,7 @@ COPY files/eula.txt /etc/minecraft/eula.txt
 COPY files/server.properties /etc/minecraft/server.properties
 
 # Add the ops script
-COPY files/ops /usr/local/bin/ops
-RUN chmod +x /usr/local/bin/ops
+COPY --chown=1 files/ops /usr/local/bin/ops
 
 # Install dependencies, fetch Minecraft server jar file and chown files
 RUN apk add --update ca-certificates openjdk8-jre-base tzdata wget \

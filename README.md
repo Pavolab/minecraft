@@ -10,8 +10,14 @@ A docker image for minecraft server
 
 ## Running the Container
 
+First create a named data volume to hold the persistent world and config data:
+
 ```bash
-docker run -d -p 25565:25565 -v /opt/minecraft:/etc/minecraft --name minecraft-server pavolab/minecraft
+docker volume create --name minecraft-data
+```
+
+```bash
+docker run -d -p 25565:25565 -v minecraft-data:/etc/minecraft --name minecraft-server pavolab/minecraft
 ```
 
 ## Optional 'docker run' Arguments
